@@ -12,10 +12,10 @@ RUN echo "HiddenServicePort 80 127.0.0.1:80" >> /etc/tor/torrc
 
 RUN apk add --no-cache nginx
 RUN mkdir -p /run/nginx
-RUN mkdir -p /usr/share/nginx/html/
+RUN mkdir -p /usr/share/nginx/www/
 RUN chown -R nginx /run/nginx
 COPY default.conf /etc/nginx/http.d/default.conf
-RUN echo "Hello World" > /usr/share/nginx/html/index.html
+COPY www/ /usr/share/nginx/www/
 
 COPY start.sh /start.sh
 RUN chmod +x start.sh
