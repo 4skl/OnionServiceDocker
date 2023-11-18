@@ -1,10 +1,17 @@
-4skl: Help me write a README for this project, it's called OnionServiceDocker this aim at publishing an .onion website easily (like to avoid registering a domain name, leaking an ip address,...), note, this project is still under developpment and can't be considered 100% secure.
-
-GitHub Copilot: 
-
 # OnionServiceDocker
 
 OnionServiceDocker is a project aimed at simplifying the process of publishing an .onion website. It is designed to help you avoid the need for registering a domain name or leaking an IP address. This project is built on Docker, using Alpine Linux as the base image, and includes Tor and Nginx for serving the website.
+
+# SECURITY WARNING
+
+Keep the secret key used in production secret!, don't run with debug turned on in production!
+Runing this project in production is not recommended, this is just a demo project
+This project is not secure, it is just a demo project
+This project is not optimized, it is just a demo project
+Using the current keys in production can lead to RCE and other security issues, make sure to change them and turn the debug off before using in production. 
+(As this project directly exposes the Django server to the internet, consider runing it without reading and changing the code as runing it in production, it is just a demo project)
+
+You have been warned!
 
 ## Features
 
@@ -15,8 +22,9 @@ OnionServiceDocker is a project aimed at simplifying the process of publishing a
 ## Usage
 
 1. Clone this repository.
-2. Build the Docker image using the provided Dockerfile.
-3. Run the Docker container.
+2. Modify the code to suit your needs and avoid security issues.
+3. Build the Docker image using the provided Dockerfile.
+4. Run the Docker container.
 
 ### Example
 
@@ -25,7 +33,17 @@ git clone
 cd OnionServiceDocker
 docker build -t onionservicedocker .
 docker run -it --rm onionservicedocker
+
+# During de development process you can run the container with the following command
+docker run -it --rm onionservicedocker sh
+
+# Debug the nginx server
+docker run -it --rm -p 80:80 onionservicedocker
+
+# Debug the django server
+docker run -it --rm -p 8000:8000 onionservicedocker
 ```
+
 
 ## Development Status
 
@@ -48,7 +66,11 @@ Any use of this project for illegal purposes is strictly prohibited.
 
 ## Contact
 
-For any inquiries, please open an issue on the GitHub repository.
+For any inquiries, please open an issue on the GitHub repository. Or contact me via email at [ask@4skl.com](mailto:ask@4skl.com).
+
+## Now Working On
+
+- Add support for different stacks
 
 ## Future Plans
 
@@ -56,6 +78,8 @@ For any inquiries, please open an issue on the GitHub repository.
 - Add more configuration options.
 - Provide detailed setup and usage instructions.
 - Add support for other web servers (e.g., Apache, Nginx, etc.).
+- Add support for other operating systems (e.g., Debian, Ubuntu, etc.).
+- Move I2P support to a separate project.
 
 ## Donations (optional)
 

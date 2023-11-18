@@ -6,4 +6,5 @@ su -s /bin/sh -c 'tor &' tor
 su -s /bin/sh -c 'nginx -g "daemon off;"' nginx
 su -s /bin/sh -c 'nginx -s reload' nginx
 
+su -s /bin/sh -c 'cd /usr/src/app/backend/ && gunicorn backend.wsgi:application -b 0.0.0.0:8000 &>> log.txt &' app
 # todo perhaps use supervidord ur runit to start both services
